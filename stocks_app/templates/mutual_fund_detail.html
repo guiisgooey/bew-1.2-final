@@ -1,0 +1,35 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>{{ mutual_fund.name }}</h1>
+
+<p>{{mutual_fund.desc}}</p>
+
+<p>Price per share: ${{mutual_fund.value}}</p>
+
+<h2>{{mutual_fund.name}} Price Index:</h2>
+
+<img src="/graph/{{mutual_fund.value}}" />
+
+<form
+  method="post"
+  action="{{ url_for('main.mfs_watch_list_add', mutual_fund_id = mutual_fund.id) }}"
+>
+  {{form2.submit}}
+</form>
+
+<h2>Edit Mutual Fund</h2>
+
+<form
+  method="POST"
+  action="{{ url_for('main.mutual_fund_detail', mutual_fund_id=mutual_fund.id) }}"
+>
+  {{ form.csrf_token }}
+  <fieldset>
+    <legend>Please enter updated information for the mutual fund:</legend>
+
+    {{ form.name.label }} {{ form.name }} {{ form.desc.label }} {{ form.desc }}
+    {{ form.submit }}
+  </fieldset>
+</form>
+
+{% endblock %}

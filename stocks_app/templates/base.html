@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Stock and Mutual Fund Mockup</title>
+  </head>
+  <body>
+    <div id="content">
+      {% for message in get_flashed_messages() %}
+      <p>{{ message }}</p>
+      {% endfor %}
+      <nav>
+        <a href="/">Home</a>
+        <div>
+          {% if current_user.is_authenticated %}
+          <a href="/new_mutual_fund">New Mutual Fund</a>
+          <a href="/new_stock">New Stock</a>
+          <a href="/watch_list">My Watch List</a>
+          <a href="/logout">Log Out</a>
+
+          {% else %}
+          <a href="/signup">Sign Up</a>
+          <a href="/login">Log In</a>
+          {% endif %}
+        </div>
+      </nav>
+      {% block content %}{% endblock %}
+    </div>
+  </body>
+</html>

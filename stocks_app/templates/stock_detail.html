@@ -1,0 +1,35 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>{{ stock.name }}</h1>
+
+<p>{{stock.desc}}</p>
+
+<p>Price per share: ${{ stock.value }}</p>
+
+<h2>{{stock.name}} Price Index:</h2>
+
+<img src="/graph/{{stock.value}}" />
+
+<form
+  method="post"
+  action="{{ url_for('main.stocks_watch_list_add', stock_id = stock.id) }}"
+>
+  {{form2.submit}}
+</form>
+
+<h2>Edit Stock</h2>
+
+<form
+  method="POST"
+  action="{{ url_for('main.stock_detail', stock_id=stock.id) }}"
+>
+  {{ form.csrf_token }}
+  <fieldset>
+    <legend>Please enter updated information for the stock:</legend>
+
+    {{ form.name.label }} {{ form.name }} {{ form.desc.label }} {{ form.desc }}
+    {{ form.value.label }} {{ form.value }} {{ form.submit }}
+  </fieldset>
+</form>
+
+{% endblock %}

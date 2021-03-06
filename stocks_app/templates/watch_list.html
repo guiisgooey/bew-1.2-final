@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>Your Watch List:</h1>
+
+<h2>Stocks:</h2>
+
+{% for stock in watching_stocks %}
+<p>{{ stock.name }}</p>
+<p>{{ stock.desc }}</p>
+<p>Price per share: ${{ stock.value }}</p>
+<img src="/graph/{{stock.value}}" />
+{% endfor %}
+
+<h2>Mutual Funds:</h2>
+
+{% for mf in watching_mfs %}
+<p>{{ mf.name }}</p>
+<p>{{ mf.desc }}</p>
+<p>Price per share: ${{ mf.value }}</p>
+<img src="/graph/{{mf.value}}" />
+{% endfor %} {% endblock %}

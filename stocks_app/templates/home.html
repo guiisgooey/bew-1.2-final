@@ -1,0 +1,25 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>Stock and Mutual Fund Mockup</h1>
+
+<h2>All Stocks</h2>
+
+{% for stock in all_stocks %}
+<div class="stock">
+  <a href="/stock/{{ stock.id }}">{{ stock.name }}</a>
+  <small>{{stock.desc}}</small>
+  Price per share: ${{ stock.value }}
+  <img src="/graph/{{stock.value}}" />
+</div>
+{% endfor %}
+
+<h2>All Mutual Funds</h2>
+
+{% for mutual_fund in all_mutual_funds %}
+<div class="mutual_fund">
+  <a href="/mutual_fund/{{ mutual_fund.id }}">{{ mutual_fund.name }}</a>
+  <small>{{mutual_fund.desc}}</small>
+  Price per share: ${{ mutual_fund.value }}
+  <img src="/graph/{{mutual_fund.value}}" />
+</div>
+{% endfor %} {% endblock %}

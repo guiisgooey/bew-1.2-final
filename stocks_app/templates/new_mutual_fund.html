@@ -1,0 +1,15 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>New Mutual Fund</h1>
+
+<form method="POST" action="{{ url_for('main.new_mutual_fund') }}">
+  {{ form.csrf_token }}
+  <fieldset>
+    <legend>Please enter the mutual fund's information:</legend>
+
+    {{ form.name.label }} {{ form.name }} {{ form.desc.label }} {{ form.desc }}
+    {{form.value.label}} {{form.value}} {{ form.submit }}
+  </fieldset>
+</form>
+
+{% endblock %}
