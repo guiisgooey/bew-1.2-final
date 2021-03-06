@@ -30,7 +30,7 @@ def new_mutual_fund():
         )
         db.session.add(new_mutual_fund)
         db.session.commit()
-        flash('New mutual fund was created! \n You still need to add items to the mutual fund for it to have value!')
+        flash('New mutual fund was created!')
         return redirect(url_for('main.mutual_fund_detail', mutual_fund_id = new_mutual_fund.id, mutual_fund = new_mutual_fund))
 
     return render_template('new_mutual_fund.html', form=form)
