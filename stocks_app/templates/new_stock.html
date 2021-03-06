@@ -9,19 +9,19 @@
 
     {{ form.name.label }} {{ form.name }}
     <ul>
-      {% for error in form.password.errors %}
+      {% for error in form.name.errors %}
       <li class="error">{{ error }}</li>
       {% endfor %}
     </ul>
     {{ form.desc.label }} {{ form.desc }}
     <ul>
-      {% for error in form.password.errors %}
+      {% for error in form.desc.errors %}
       <li class="error">{{ error }}</li>
       {% endfor %}
     </ul>
     {{ form.value.label }} {{ form.value }}
     <ul>
-      {% for error in form.password.errors %}
+      {% for error in form.value.errors %}
       <li class="error">{{ error }}</li>
       {% endfor %}
     </ul>
